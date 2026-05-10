@@ -1,0 +1,19 @@
+# Node
+frontend/ecommerce-app/node_modules/
+frontend/ecommerce-app/dist/
+
+# Maven
+backend/**/target/
+backend/**/*.class
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
