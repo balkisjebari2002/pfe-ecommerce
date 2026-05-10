@@ -1,0 +1,6 @@
+{
+  "/auth": { "target": "http://localhost:8080", "changeOrigin": true },
+  "/users": { "target": "http://localhost:8080", "changeOrigin": true },
+  "/products": { "target": "http://localhost:8080", "changeOrigin": true },
+  "/orders": { "target": "http://localhost:8080", "changeOrigin": true }
+}

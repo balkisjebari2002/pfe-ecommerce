@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "PFE Market",
+    "tagline": "Votre boutique en ligne"
+  },
+  "nav": {
+    "catalogue": "Catalogue",
+    "cart": "Panier",
+    "orders": "Mes commandes",
+    "account": "Mon compte",
+    "admin": "Administration",
+    "login": "Connexion",
+    "logout": "Déconnexion"
+  },
+  "catalog": {
+    "title": "Catalogue",
+    "search": "Rechercher...",
+    "category": "Catégorie",
+    "sort": "Trier par",
+    "noProducts": "Aucun produit trouvé",
+    "addToCart": "Ajouter au panier",
+    "outOfStock": "Rupture de stock"
+  },
+  "cart": {
+    "title": "Mon Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Commander",
+    "continueShopping": "Continuer les achats"
+  },
+  "checkout": {
+    "title": "Commander",
+    "address": "Adresse de livraison",
+    "summary": "Récapitulatif",
+    "confirm": "Confirmer la commande",
+    "success": "Commande confirmée !"
+  },
+  "orders": {
+    "title": "Mes Commandes",
+    "noOrders": "Aucune commande pour le moment",
+    "status": {
+      "CONFIRMED": "Confirmée",
+      "SHIPPED": "Expédiée",
+      "DELIVERED": "Livrée",
+      "CANCELLED": "Annulée"
+    }
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom"
+  }
+}

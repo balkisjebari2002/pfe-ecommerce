@@ -1,0 +1,72 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:4200"
+              - "http://localhost:80"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: true
+      routes:
+        # Auth routes — public (no JWT filter)
+        - id: auth-route
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<segment>.*), /auth/${segment}
+
+        # User routes — protected
+        - id: user-route
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+          filters:
+            - JwtGatewayFilter
+
+        # Product routes — public GET, protected POST/PUT/DELETE
+        - id: product-route-public
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+            - Method=GET
+
+        - id: product-route-admin
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+            - Method=POST,PUT,DELETE
+          filters:
+            - JwtGatewayFilter
+
+        # Order routes — protected
+        - id: order-route
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
+          filters:
+            - JwtGatewayFilter
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+jwt:
+  secret: ${JWT_SECRET:bXlzdXBlcnNlY3JldGtleWZvcnBmZWVjb21tZXJjZTIwMjQ=}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
