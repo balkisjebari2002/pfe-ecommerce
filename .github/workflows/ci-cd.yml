@@ -77,18 +77,6 @@ jobs:
     runs-on: self-hosted
     needs: build-and-push
     steps:
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Pull latest images
-        run: |
-          docker pull balkisjebari2002/api-gateway:latest
-          docker pull balkisjebari2002/user-service:latest
-          docker pull balkisjebari2002/product-service:latest
-          docker pull balkisjebari2002/order-service:latest
-          docker pull balkisjebari2002/discovery-service:latest
-          docker pull balkisjebari2002/frontend:latest
-
       - name: Restart deployments
         run: |
           kubectl rollout restart deployment/api-gateway
